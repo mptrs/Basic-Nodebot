@@ -1,6 +1,7 @@
 // @flow
 
 /* eslint-disable no-console */
+import { RaspiIO } from 'raspi-io';
 import { Board, Led } from 'johnny-five';
 import express from 'express';
 import { Server } from 'http';
@@ -30,7 +31,9 @@ http.listen(8000, () => {
 let lightOn = true;
 
 // Make a new Board Instance
-const board = new Board();
+const board = new Board({
+  io: new RaspiIO()
+});
 
 // When the board is connected, turn on the LED connected to pin 9
 board.on('ready', function() {
