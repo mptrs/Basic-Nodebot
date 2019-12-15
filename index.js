@@ -40,7 +40,7 @@ board.on('ready', function() {
   console.log('[johnny-five] Board is ready.');
 
   // Make a new Led object and connect it to pin 9
-  const led = new Led(9);
+  const led = new Led('P1-12');
 
   // Switch it on!
   led.on();
